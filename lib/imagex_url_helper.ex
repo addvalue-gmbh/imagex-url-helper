@@ -45,4 +45,5 @@ defmodule ImagexUrlHelper do
     |> :crypto.hmac(key, salt <> path)
     |> Base.url_encode64(padding: false)
   end
+  
 end

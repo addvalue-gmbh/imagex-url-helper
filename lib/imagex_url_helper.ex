@@ -3,13 +3,13 @@ defmodule ImagexUrlHelper do
   Documentation for ImagexUrlHelper.
   """
 
-  @salt Application.get(:salt, __MODULE__)
+  @salt Application.get_env(:salt, __MODULE__)
   def salt, do: Base.decode16!(@salt, case: :lower)
 
-  @key Application.get(:key, __MODULE__)
+  @key Application.get_env(:key, __MODULE__)
   def key, do: Base.decode16!(@key, case: :lower)
 
-  @prefix Application.get(:key, __MODULE__)
+  @prefix Application.get(:prefix, __MODULE__)
   def prefix, do: @prefix
 
   @doc """

@@ -9,7 +9,7 @@ defmodule ImagexUrlHelper do
   @key Application.get_env(:key, __MODULE__)
   def key, do: Base.decode16!(@key, case: :lower)
 
-  @prefix Application.get(:prefix, __MODULE__)
+  @prefix Application.get_env(:prefix, __MODULE__)
   def prefix, do: @prefix
 
   @doc """

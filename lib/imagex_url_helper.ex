@@ -27,6 +27,7 @@ defmodule ImagexUrlHelper do
 
     Path.join([prefix(), signature, path])
   end
+  def build_url(_, _), do: nil
 
   defp build_path(img_url, opts \\ []) do
     resize_type = Keyword.get(opts, :resize_type, "fit")
@@ -46,6 +47,7 @@ defmodule ImagexUrlHelper do
       Base.url_encode64(img_url, padding: false) <> "." <> extension
     ])
   end
+  def build_path(_, _), do: nil
 
   defp gen_signature(path) do
     :sha256

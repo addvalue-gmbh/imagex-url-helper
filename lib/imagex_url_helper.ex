@@ -25,7 +25,7 @@ defmodule ImagexUrlHelper do
     path = build_path(img_url, opts)
     signature = gen_signature(path)
 
-    Path.join([prefix, signature, path])
+    Path.join([prefix(), signature, path])
   end
 
   defp build_path(img_url, opts) do
@@ -42,7 +42,7 @@ defmodule ImagexUrlHelper do
 
   defp gen_signature(path) do
     :sha256
-    |> :crypto.hmac(key, salt <> path)
+    |> :crypto.hmac(key(), salt() <> path)
     |> Base.url_encode64(padding: false)
   end
   

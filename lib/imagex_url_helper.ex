@@ -47,7 +47,7 @@ defmodule ImagexUrlHelper do
       Base.url_encode64(img_url, padding: false) <> "." <> extension
     ])
   end
-  def build_path(_, _), do: nil
+  defp build_path(_, _), do: nil
 
   defp gen_signature(path) do
     :sha256

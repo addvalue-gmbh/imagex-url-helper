@@ -21,7 +21,7 @@ defmodule ImagexUrlHelper do
       "http://img.example.com/KkoVXq-WlnBU4-KAERxGZ887..."
 
   """
-  def build_url(img_url, opts \\ []) do
+  def build_url(img_url, opts) do
     path = build_path(img_url, opts)
     signature = gen_signature(path)
 

@@ -3,14 +3,19 @@ defmodule ImagexUrlHelper do
   Documentation for ImagexUrlHelper.
   """
 
-  @salt Application.get_env(:imagex_url_helper, :salt)
-  def salt, do: Base.decode16!(@salt, case: :lower)
+  def salt do 
+    Application.get_env(:imagex_url_helper, :salt)
+    |> Base.decode16!(case: :lower)
+  end
 
-  @key Application.get_env(:imagex_url_helper, :key)
-  def key, do: Base.decode16!(@key, case: :lower)
+  def key do
+    Application.get_env(:imagex_url_helper, :key)
+    |> Base.decode16!(case: :lower)
+  end
 
-  @prefix Application.get_env(:imagex_url_helper, :prefix)
-  def prefix, do: @prefix
+  def prefix do
+    Application.get_env(:imagex_url_helper, :prefix)
+  end
 
   @doc """
   Builds and signs a url with given parameters

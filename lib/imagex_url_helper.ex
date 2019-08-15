@@ -1,6 +1,6 @@
 defmodule ImagexUrlHelper do
   @moduledoc """
-  Documentation for ImagexUrlHelper.
+  Imagex helper functions for generating signed image urls.
   """
 
   def salt do 

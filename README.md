@@ -1,6 +1,6 @@
 # ImagexUrlHelper
 
-**TODO: Add description**
+Imagex helper functions for generating signed image urls.
 
 ## Installation
 

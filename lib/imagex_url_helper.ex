@@ -34,7 +34,7 @@ defmodule ImagexUrlHelper do
     Path.join([prefix(), signature, path])
   end
 
-  defp build_path(img_url, opts \\ []) do
+  defp build_path(img_url, opts) do
     resize_type = Keyword.get(opts, :resize_type, "fit")
     width = Keyword.get(opts, :width, 200)
     height = Keyword.get(opts, :height, 100)

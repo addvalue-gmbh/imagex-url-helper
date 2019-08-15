@@ -1,21 +1,16 @@
 defmodule ImagexUrlHelper do
   @moduledoc """
   Imagex helper functions for generating signed image urls.
+
+  Make sure to add your key, salt and prefix to your application env:
+
+  ## Example
+
+      config :imagex_url_helper,
+        prefix: "https://img.example.com",
+        salt: "your_imagex_salt",
+        key: "your_imagex_key"
   """
-
-  def salt do 
-    Application.get_env(:imagex_url_helper, :salt)
-    |> Base.decode16!(case: :lower)
-  end
-
-  def key do
-    Application.get_env(:imagex_url_helper, :key)
-    |> Base.decode16!(case: :lower)
-  end
-
-  def prefix do
-    Application.get_env(:imagex_url_helper, :prefix)
-  end
 
   @doc """
   Builds and signs a url with given parameters
@@ -57,6 +52,20 @@ defmodule ImagexUrlHelper do
     :sha256
     |> :crypto.hmac(key(), salt() <> path)
     |> Base.url_encode64(padding: false)
+  end
+
+  defp salt do 
+    Application.get_env(:imagex_url_helper, :salt)
+    |> Base.decode16!(case: :lower)
+  end
+
+  defp key do
+    Application.get_env(:imagex_url_helper, :key)
+    |> Base.decode16!(case: :lower)
+  end
+
+  defp prefix do
+    Application.get_env(:imagex_url_helper, :prefix)
   end
   
 end
